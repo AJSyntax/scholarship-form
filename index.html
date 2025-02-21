@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scholarship Application Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+            background: #f4f4f4;
+        }
+        form {
+            width: 50%;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input, button {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background: blue;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Presidential Scholarship Application Form</h2>
+    <form id="scholarshipForm">
+        <input type="text" name="entry.2075817047" placeholder="Full Name (Last, First, MI.)" required>
+        <input type="text" name="entry.967795645" placeholder="Preferred Course" required>
+        <input type="text" name="entry.1254128811" placeholder="Complete Address" required>
+        <input type="text" name="entry.1412873745" placeholder="Contact Number" required>
+        <input type="email" name="entry.1153853780" placeholder="Email Address" required>
+        <input type="text" name="entry.5111131" placeholder="Elementary School & Year Graduated" required>
+        <input type="text" name="entry.1862645072" placeholder="Junior High School & Year Graduated" required>
+        <input type="text" name="entry.1358765211" placeholder="Senior High School & Year Graduated" required>
+        <button type="submit">Submit Application</button>
+    </form>
+
+    <script>
+        document.getElementById("scholarshipForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            fetch("https://docs.google.com/forms/d/e/1FAIpQLSeKnIAW27-BAGX-lsyRbZlr-Ifh9h3meqqwFrHy5FjhXc4Hjw/formResponse", {
+                method: "POST",
+                body: formData,
+                mode: "no-cors"
+            })
+            .then(() => alert("Form Submitted Successfully!"))
+            .catch(error => console.error("Error:", error));
+        });
+    </script>
+</body>
+</html>
+    
